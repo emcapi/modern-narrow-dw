@@ -93,6 +93,9 @@ a:hover {
 }
 
 /* Handle two-column tertiary module container */
+.two-columns #tertiary {
+    max-width: unset;
+}
 .two-columns #tertiary > .inner {
     padding-top: 0px;
     padding-bottom: 0px;
