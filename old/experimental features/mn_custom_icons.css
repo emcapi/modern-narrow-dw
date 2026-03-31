@@ -1,0 +1,286 @@
+/* Add to color section */
+
+/* Colors for custom icon buttons and fake alt-text (dark theme) */
+/* If you want to change the individual hover colors for every icon, you'll need to do it manually;
+they're all different and adding them all would make the color section enormous. */
+.icon-links li a {
+    /* Default (inactive) color */
+    &:after {
+        color: white;
+    }
+    /* Fake alt-text colors */
+    &:hover:before {
+        color: white;
+        background: #282828;
+        border-color: #bcbcbc;
+    }
+}
+
+
+/* Custom icon buttons! REMOVE everything after this line if you want the original icons! */
+
+@font-face {
+    font-family: g_icons;
+    font-style: normal;
+    font-weight: 100 700;
+    /* Google Material Rounded icons */
+    src: url(https://fonts.gstatic.com/s/materialsymbolsrounded/v324/sykg-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190Fjzag.woff2) format('woff2');
+}
+
+ul.entry-management-links li, ul.comment-management-links li {
+    padding: 1px 3px;
+}
+
+/* For all icon links: */
+.icon-links li a {
+    margin: 0;
+    img {
+        display: none;
+    }
+    &:hover {
+        text-decoration: none;        
+    }
+    &:after {
+        font-size: 24px;
+        font-family: g_icons;
+    }
+    &:hover:after {
+        font-variation-settings: 'FILL' 1;
+    }
+    
+    /* Atrociously hacky fake alt-text */
+    &:hover:before {
+        position: absolute;
+        font-size: 90%;
+        padding: 6px;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 6px;
+        translate: 0em 32px;
+    }
+}
+
+/* Entry Management */
+
+.link_prev a {
+    &:after {
+        content: "arrow_back";
+    }
+    &:hover:before {
+        content: "Previous Entry";
+    }
+    &:hover:after {
+        color: dodgerblue;
+    }
+}
+
+.edit_entry a {
+    &:after {
+        margin-right: 1px;
+        content: "edit_square";
+    }
+    &:hover:before {
+        content: "Edit Entry";
+    }
+    &:hover:after {
+        color: skyblue;
+    }
+}
+
+.edit_tags a {
+    &:after {
+        margin-left: 1px;
+        content: "sell";
+    }
+    &:hover:before {
+        content: "Edit Tags";
+    }
+    &:hover:after {
+        color: skyblue;
+    }
+}
+
+.mem_add a {
+    &:after {
+        content: "heart_plus";
+    }
+    &:hover:before {
+        content: "Add/Edit Memory";
+    }
+    &:hover:after {
+        color: palevioletred;
+    }
+}
+
+.tell_friend a {
+    &:after {
+        content: "forward_to_inbox";
+    }
+    &:hover:before {
+        content: "Share (Email)";
+    }
+    &:hover:after {
+        color: lightsteelblue;
+    }
+}
+
+.watch_comments a {
+    &:after {
+        content: "notification_add";
+    }
+    &:hover:before {
+        content: "Receive Notifications";
+    }
+    &:hover:after {
+        color: goldenrod;
+    }
+}
+
+.unwatch_comments a {
+    &:after {
+        content: "notification_settings";
+    }
+    &:hover:before {
+        content: "Edit Notifications";
+    }
+    &:hover:after {
+        color: goldenrod;
+    }
+}
+
+.link_next a {
+    &:after {
+        content: "arrow_forward";
+    }
+    &:hover:before {
+        content: "Next Entry";
+    }
+    &:hover:after {
+        color: dodgerblue;
+    }
+}
+
+/* Comment Management */
+
+.edit_comment a {
+    &:after {
+        content: "edit";
+    }
+    &:hover:before {
+        content: "Edit Comment";
+    }
+    &:hover:after {
+        color: goldenrod;
+    }
+}
+
+.delete_comment a {
+    &:after {
+        content: "cancel";
+    }
+    &:hover:before {
+        content: "Delete Comment";
+    }
+    &:hover:after {
+        color: indianred;
+    }
+}
+
+.screen_comment a {
+    &:after {
+        content: "lightbulb";
+    }
+    &:hover:before {
+        content: "Screen/Unscreen Comment";
+    }
+    &:hover:after {
+        color: wheat;
+    }
+}
+
+.freeze_thread a {
+    &:after {
+        content: "pause_circle";
+    }
+    &:hover:before {
+        content: "Freeze/Unfreeze Thread";
+    }
+    &:hover:after {
+        color: cornflowerblue;
+    }
+}
+
+
+/* Community/User Management */
+
+.manage_membership a {
+    &:after {
+        content: "globe";
+    }
+    &:hover:before {
+        content: "Join/Leave Community";
+    }
+    &:hover:after {
+        color: mediumaquamarine;
+    }
+}
+
+.watch a {
+    &:after {
+        content: "auto_stories";
+    }
+    &:hover:before {
+        content: "Add/Edit Subscription";
+    }
+    &:hover:after {
+        color: cornflowerblue;
+    }
+}
+
+.post_entry a {
+    &:after {
+        content: "add_notes";
+    }
+    &:hover:before {
+        content: "New Post";
+    }
+    &:hover:after {
+        color: skyblue;
+    }
+}
+
+.track a {
+    &:after {
+        content: "notification_add";
+    }
+    &:hover:before {
+        content: "Receive Notifications";
+    }
+    &:hover:after {
+        color: goldenrod;
+    }
+}
+
+.message a {
+    &:after {
+        content: "send";
+    }
+    &:hover:before {
+        content: "Send Private Message";
+    }
+    &:hover:after {
+        color: cornflowerblue;
+    }
+}
+
+.trust a {
+    &:after {
+        content: "key";
+    }
+    &:hover:before {
+        content: "Grant/Manage Access";
+    }
+    &:hover:after {
+        color: goldenrod;
+    }
+}

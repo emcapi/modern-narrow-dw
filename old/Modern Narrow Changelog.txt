@@ -1,0 +1,33 @@
+v 1.0.0
+
+Initial public release.
+
+v 1.1.0
+
+- Slightly larger center column (from 40em/640px -> 45em/720px).
+- New comment section improvements:
+    - Restyled comment reply form to match rest of theme.
+    - Added alternating-color thread indicators to make thread identification/navigation easier. Even works with deep-nested mobile comments!
+- Added full support/styling for header navlinks. (Try them out, they look really cool!)
+- Added color styling for navbar.
+- Header text is now centered.
+    - Removed support for left-centered text.
+        - (Couldn't find a way to make headers consistently good-looking with the nav buttons while retaining easy left/center alignment changes. Alas.)
+- Text buttons are now fully rounded (more in line with other modern social media sites), larger (for easier mobile interaction), and centered.
+    - Why centered?
+        - Looks a lot better on mobile, especially on comments with enough buttons to overflow into a second row.
+- NEW: custom icon buttons for profile/post/comment interaction!
+    - Why change them?
+        - Larger icons = easier to use on mobile
+        - Easier to understand for new users coming from other socmed sites (part of the overall goal of this theme set)
+    - Descriptive "alt text" on hover (can't find a way to avoid the original alt text getting overrode... overridden? one of those).
+        - I'm pretty sure my strategy for making this work would make a professional web designer cry. And I doubt they would be tears of joy. BUT IT WORKS!
+        - (If these don't work with screen readers, I'm sorry! There's only so much I can do in a stylesheet T_T)
+    - Icons use Google Material Rounded icon font, rather than static images, for greater customization and better long-term stability.
+    - Default display color can be changed (see color section)
+    - Icons also have individual colors (based on original icon set) on hover!
+    - Icon buttons on entries and comments are now centered to match text buttons.
+    - If you want to keep the original icons, delete everything after the CUSTOM ICON BUTTONS heading.
+- Code has been fully refactored, and should now be slightly less of a disaster!
+    - There is now a designated color section which handles 99% of colors for easy editing!
+    - To add a custom font, you'll need to remove the first section (3 lines of code) after the FONT TWEAKS heading.

@@ -1,0 +1,159 @@
+/* Modern Narrow Light by @emcapi - v1.1.0 */
+
+/* HOW TO USE: Paste this into Modern Narrow Core betweeen the "PASTE COLOR THEME" lines! */
+
+/* Link colors */
+a:link, a:visited {
+    color: navy;
+}
+
+/* Top nav strip */
+#lj_controlstrip {
+    color: black;
+    background: none;
+}
+#lj_controlstrip a, #lj_controlstrip_statustext {
+    color: black;
+}
+
+/* Boxes for major page components */
+#header,
+.entry,
+:is(.module-section-one, .module-section-two) .module, /* Exclude header nav links */
+.comment-wrapper,
+#archive-month .month,
+.year,
+.tags-container,
+.bottomcomment,
+#qrdiv:not([style="display: inline;"]) /* Standalone comment reply form */
+{
+    border-color: #00000020;
+    box-shadow: 2px 2px 4px #00000020;
+}
+
+/* Text button and input field colors */
+.text-links a,
+.page-top a,
+input,
+select,
+#lj_controlstrip input,
+#lj_controlstrip select,
+#lj_controlstrip input#login_user,
+#lj_controlstrip input#login_password,
+#lj_controlstrip input#login_remember,
+#lj_controlstrip input#search,
+#header .module-list a,
+.ui-button-text {
+    background-color: white;
+    color: black;
+    border-color: #00000020;
+}
+/* Highlight buttons on hover */
+:is(
+    .text-links a,
+    .page-top a,
+    input,
+    select,
+    .icon-links li,
+    #lj_controlstrip input,
+    #lj_controlstrip select,
+    #header .module-list a,
+    .ui-button-text
+):hover {
+    background-color: #00000020;
+}
+
+/* Comment thread indicators */
+.comment-depth-odd {
+    border-color: #00000020;
+}
+.comment-depth-even {
+    border-color: #00000040;
+}
+
+/* Calendar headers */
+:is(.module-calendar, table.month) th {
+    background-color: #00000010;
+}
+
+/* Contextual tooltips*/
+body .ui-tooltip {
+    border-color: #00000020;
+}
+.ui-widget-content {
+    border-color: #00000020;
+}
+.ui-widget-header {
+    background-color: white;
+}
+
+/* Text boxes */
+textarea {
+    border-color: #00000020;
+}
+
+/* Colors for custom icon buttons */
+.icon-links li a {
+    /* Default (inactive) color */
+    &:after {
+        color: black;
+    }
+    &:hover:before {
+        color: black;
+        background: white;
+        border-color: #cccccc;
+    }
+}
+.icon-links li:hover {
+    background-color: unset !important;
+}
+
+/* Icon button hover colors for light theme.
+Loosely based off original DW icons. */
+:is(
+    .edit_entry,
+    .edit_tags,
+    .post_entry
+) a:hover:after {
+    color:#47b2ff;
+}
+
+:is(
+    .tell_friend
+) a:hover:after {
+    color: cornflowerblue;
+}
+
+:is(
+    .mem_add,
+    .delete_comment
+) a:hover:after {
+    color: palevioletred;
+}
+
+:is(
+    .watch_comments,
+    .unwatch_comments,
+    .edit_comment,
+    .screen_comment,
+    .track,
+    .trust
+) a:hover:after {
+    color: #e9a028;
+}
+
+:is(
+    .link_prev,
+    .link_next,
+    .freeze_thread,
+    .watch,
+    .message
+) a:hover:after {
+    color: dodgerblue;
+}
+
+:is(
+    .manage_membership
+) a:hover:after {
+    color: mediumseagreen;
+}

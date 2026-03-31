@@ -1,0 +1,833 @@
+/*
+Modern Narrow for Tabula Rasa (Dreamwidth layout)
+https://github.com/emcapi/modern-narrow-dw
+Author: @emcapi
+Version: 1.1.0
+Last updated: 3/30/26
+See Github for full permissions, documentation, and updates!
+
+This code is 100% human-made! (And you can probably tell, because
+I ended up learning as I go for a lot of it, lol.)
+
+WARNING: This is the CORE edition with NO COLOR SETTINGS. Unless
+you are planning on using fully custom colors, you will need to
+paste in one of the color themes from the original post, or it
+will not look good!!
+
+******************* Recommended Theme Settings *******************
+
+Presentation > Additional Options:
+
+"The width at which the layout switches from single column mode
+(mobile view) to multiple columns if selected (tablet view)":
+set to sum of total sidebar width in em + 45em
+Example: default 15em sidebar, with 2-sidebar layout:
+(2 x 15em) + 45em = 75em
+
+"Indentation for nested comment threads": set to "Responsive"
+
+"...indicate thread depth (mobile)": set to 4
+
+"...indicate thread depth (desktop)": set to 12, or according to
+personal preference
+
+************************** Bug Reports **************************
+
+If you run into problems, even with the above settings, please
+send me (@emcapi) a message including:
+
+- A quick description of the issue
+- A screenshot link, if possible
+- Your column configuration setting
+- A link to the page you were having issues on, if possible
+- What browser you're using
+- What type of device you're on (phone/tablet/desktop)
+
+I will take a look and see if I can fix it!
+
+Disclaimer: ongoing support is provided at author's discretion,
+and not guaranteed. I cannot provide support for edits.
+*/
+
+/* COLOR THEME */
+/* vvvvvvvvvvvvv PASTE COLOR THEME BELOW THIS LINE vvvvvvvvvvvvv */
+
+
+/* ^^^^^^^^^^^^^ PASTE COLOR THEME ABOVE THIS LINE ^^^^^^^^^^^^^ */
+
+
+/* FONT TWEAKS */
+
+/* Set default font; REMOVE if adding custom font! */
+body {
+    font-family: sans-serif;
+}
+
+/* Remove underline from links unless hovering */
+a:link, a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* PAGE STRUCTURE */
+
+/* Enable centered columns */
+#content {
+    display: flex;
+    justify-content: center;
+}
+
+/* Set fixed size for main column on sufficiently large screens */
+@media only screen and (min-width: 720px) {
+    #primary {
+        width: 720px;
+    }
+
+    /* Fix weird centering issues when sidebar/s hidden */
+    #content > .inner {
+        width: min-content;
+    }
+}
+
+/* Handle two-column tertiary module container */
+.two-columns #tertiary > .inner {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.two-columns #tertiary .module {
+    float: unset;
+    width: unset;
+}
+
+/* Prevent overflow from potentially problematic content types */
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+div, table, blockquote, h1, h2, h3, h4, h5, h6 {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+textarea {
+    box-sizing: border-box;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 90%;
+    max-width: 90%;
+}
+ul, ol {
+    margin-top: 0;
+    margin-left: 0;
+    padding-left: 1.5em;
+}
+
+#primary > .inner:first-child { /* Small (hacky) alignment fix */
+    margin-top: -1.5px; /* middle column being misaligned by like 1px was driving me up the wall lmao */
+}
+
+
+/* PAGE COMPONENTS */
+
+/* Control strip */
+#lj_controlstrip_user, #lj_controlstrip_login, #lj_controlstrip_actionlinks {
+    border-right: none;
+}
+#lj_controlstrip_userpic {
+    margin-left: 3px;
+    img {border-radius: 10%};
+}
+
+/* Default component box structure */
+.entry,
+:is(.module-section-one, .module-section-two) .module, /* Exclude header nav links */
+.comment-wrapper,
+#archive-month .month,
+.year,
+.tags-container,
+.bottomcomment,
+#qrdiv:not([style="display: inline;"]) /* Standalone comment reply form */
+{
+    padding: 10px 20px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-radius: 8px;
+    border-width: 1px;
+    border-style: solid;
+}
+
+/* Contextual tooltip popups */
+body .ui-tooltip {
+    border-width: 1px;
+    box-shadow: none;
+}
+.ui-widget-content {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 8px;
+}
+.Userpic {
+    border-color: transparent;
+}
+
+/* more horrid secret popups >:( */
+.ui-widget-header {
+    background-image: none;
+    border: none;
+}
+.ui-widget-content .ui-state-default {
+    background: unset;
+    border: unset;
+    color: unset;
+}
+.ui-dialogue-buttonpane {
+    padding-bottom: 0;
+}
+
+
+/* HEADER */
+
+#header {
+    padding-bottom: 1em;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    h1#title {
+        font-size: larger;
+    }
+    h2#subtitle, h2#pagetitle {
+        font-size: medium;
+        padding: 0em;
+    }
+    > .inner {
+        display: flex;
+        flex-direction: column;
+        margin-left: 1.5em;
+        margin-right: 1.5em;
+    }
+}
+
+/* Header nav links */
+#header .module-list {
+    display: flex;
+    justify-content: center;
+    li {
+        margin: 0px;
+        text-wrap: nowrap;
+    }
+    a {
+        border-style: solid;
+        border-width: 1px;
+        margin: 0px 2px;
+    }
+    a:hover {
+        text-decoration: none;
+    }
+    
+    /* More compact buttons for mobile */
+    @media only screen and (max-width: 680px) {
+        flex-wrap: wrap;
+        li {
+            padding: 7px 0px;
+        }
+        a {
+            border-radius: 100px;
+            padding: 4px 0.8em;
+        }
+    }
+    
+    /* Only add rounded corners on first/last button + more padding on wide enough screens */
+    @media only screen and (min-width: 680px) {
+        li {
+            padding: 8px 0px;
+        }
+        a {
+            padding: 8px 16px;
+        }
+        li:first-child a {
+            border-top-left-radius: 100px;
+            border-bottom-left-radius: 100px;
+        }
+        li:last-child a {
+            border-top-right-radius: 100px;
+            border-bottom-right-radius: 100px;
+        }
+    }
+}
+
+
+/* ENTRIES AND COMMENTS */
+
+/* Make access/age restriction icons line up nicely */
+:is(.entry, .comment) .header > .inner {
+    display: flex;
+    flex-wrap: wrap;
+}
+.entry-title, .comment-title {
+    width: 100%;
+    margin: 0px;
+}
+.access-filter, .restrictions {
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+}
+
+/* Smaller timestamps */
+.datetime {
+    font-size: smaller;
+}
+
+/* Profile picture/icon */
+.userpic img, .userpic-img {
+    border-radius: 10%;
+    border: 1px solid transparent;
+}
+.block-icon a::after { /* "View all" option in comment form */
+    border-radius: 10%;
+}
+.contents .userpic {
+    float: left;
+    margin: auto;
+    margin-top: 5px;
+    margin-right: 16px;
+}
+/* Force smaller icons on mobile */
+@media only screen and (max-width: 600px) {
+    .contents .userpic {
+        max-width: 75px;
+    }
+}
+
+/* Text boxes */
+textarea {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 6px;
+}
+
+/* Misc. margin adjustments */
+.contents {
+    margin-top: 5px;
+}
+.entry-content, .comment-content {
+    margin-top: 5px;
+}
+.metadata ul {
+    margin-left: 0;
+}
+.bottom-metadata {
+    margin-top: 1em;
+}
+.tag {
+    margin-bottom: 0.5em;
+}
+.footer {
+    clear: both; /* Prevent user icon clipping on short posts */
+    margin-top: 1em;
+}
+
+/* Align interaction button groups and standalone buttons */
+.text-links {
+    margin-top: 3px;
+    margin-bottom: 0em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.icon-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+/* Page/comment page navigation buttons */
+@media only screen and (min-width: 720px) { /* Make nav buttons on desktop align with top of sidebars */
+    .topnav ul {
+        margin-top: 1em;
+    }
+}
+.navigation, .comment-pages {
+    text-align: center;
+}
+
+/* "Top of page" button at very bottom of page */
+.page-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Post interaction + comment management options at end of comment section */
+.bottomcomment {
+    text-align: center;
+    .text-links {
+        justify-content: center;
+    }
+    input, select {
+        margin-top: 0.5em;
+    }
+}
+
+/* Comment thread tracking */
+.comment-depth-odd {
+    border-left-width: 3px;
+    border-left-style: solid;
+    border-radius: 10px;
+}
+.comment-depth-even {
+    border-left-width: 3px;
+    border-left-style: solid;
+    border-radius: 10px;
+}
+
+/* Fix comment margins due to issues with hide/show function */
+.comment-wrapper {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.comment-thread {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+/* Comment reply form */
+#qrformdiv input, #qrformdiv button, #qrformdiv textarea, #qrformdiv select {
+    margin-top: 5px;
+}
+#qrformdiv textarea {
+    max-width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+/* Improve icon size relative to buttons */
+#qrformdiv .qr-meta .block-icon {
+    width: 65px;
+    height: 65px;
+}
+/* Fix weirdness with "width-adjusted" subclass */
+#qrformdiv.width-adjusted {
+    min-width: unset !important;
+    position: unset !important;
+    background-color: unset !important;
+}
+
+
+/* MODULES */
+
+/* Slightly smaller fonts for module contents */
+.module h2 {
+    font-size: large; /* originally x-large */
+}
+.module:not(.module-cuttagcontrols) { /* cut tag module already has tiny font */
+    font-size: 90%
+}
+
+.module-header {
+    margin-top: 0px;
+    text-align: center;
+}
+
+/* Remove bullet points from module lists */
+.module-list {
+    margin: 0px;
+}
+.module-content ul {
+    list-style: none;
+    margin-left: 0px;
+}
+
+/* User profile */
+.module-userprofile {
+    text-align: center;
+}
+
+/* Search module */
+.search-box {
+    box-sizing: border-box;
+    width: 100%;
+}
+.search-button-item {
+    text-align: center;
+    margin-top: 0.5em;
+}
+
+/* this calendar is the bane of my existence */
+.any-column .module-calendar table { /* Needs .any-column to stay centered, no idea why */
+    width: -webkit-fill-available;
+    max-width: 18em;
+    height: 14em;
+    border-collapse: collapse;
+    
+    /* stupid margins */
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    
+    /* Font adjustments */
+    font-family: monospace;
+    font-size: medium;
+    text-align: center;
+    a:link, a:visited {
+        text-decoration: underline; /* make days w/entries easy to see */
+    }
+    
+    /* Because for some godforsaken reason, active entries take up exactly 2px
+    more space on each side than inactive ones, and the alignment issues were
+    driving me absolutely nuts: */
+    .entry-day {
+        padding: 1px;
+    }
+    .empty-day {
+        padding: 3px;
+    }
+}
+
+
+/* OTHER PAGES */
+
+/* Archive pages */
+#archive-month .month {
+    .datetime {
+        font-size: unset;
+    }
+}
+.year {
+    text-align: center;
+}
+/* OH BOY ANOTHER CALENDAR MY FAVORITE */
+table.month {
+    font-family: monospace;
+    font-size: large;
+    caption {
+        display: none; /* Redundant to header */
+    }
+    tr {
+        text-align: center;
+    }
+    th, td {
+        height: 2.5em;
+        width: 2.5em;
+        border: none;
+        padding: 3px;
+    }
+    a:link, a:visited {
+        text-decoration: underline;
+    }
+}
+
+/* Tags page */
+.tags-container h2 {
+    font-size: larger;
+}
+
+
+/* BUTTONS */
+
+/* Normal buttons */
+.text-links a,
+.page-top a,
+input,
+select,
+.ui-button-text {
+    font-size: 90%;
+    padding: 4px;
+}
+.text-links a,
+.page-top a,
+input,
+select,
+#lj_controlstrip input,
+#lj_controlstrip select,
+.ui-button-text {
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    margin-bottom: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 100px; /* Ensure maximum rounding */
+}
+
+/* Less padding for nav strip buttons */
+#lj_controlstrip :is(input, select) {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+/* Remove link underline on hover */
+:is(
+    .text-links a,
+    .page-top a,
+    input,
+    select,
+    #lj_controlstrip input,
+    #lj_controlstrip select
+):hover {
+    text-decoration: none;
+}
+
+/* Fix padding for nav strip text input fields */
+#lj_controlstrip input#login_user,
+#lj_controlstrip input#login_password,
+#lj_controlstrip input#login_remember,
+#lj_controlstrip input#search {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+/* Make sure multi-row text links don't overlap */
+.text-links li {
+    margin-bottom: 6px;
+}
+
+/* Improve text button alignment */
+ul.entry-interaction-links li, ul.comment-interaction-links li {
+    padding: 2px;
+}
+
+/* Align icons and improve visible shape when hovering */
+.icon-links li {
+    border-radius: 6px;
+}
+.icon-links li a {
+    display: flex;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/* Fix tag navigation buttons */
+.tag-nav-trigger, .tag-nav-actions input {
+    background-color: unset;
+    padding: 2px;
+    margin-bottom: 0;
+    border-radius: 6px;
+}
+.tag-nav-trigger {
+    margin-left: 3px;
+}
+.tag-nav-actions {
+    padding-bottom: 0;
+}
+
+
+/* CUSTOM ICON BUTTONS */
+/* REMOVE everything after this line if you want the original icons! */
+
+@font-face {
+    font-family: g_icons;
+    font-style: normal;
+    font-weight: 100 700;
+    /* Google Material Rounded icons */
+    src: url(https://fonts.gstatic.com/s/materialsymbolsrounded/v324/sykg-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190Fjzag.woff2) format('woff2');
+}
+
+ul.entry-management-links li, ul.comment-management-links li {
+    padding: 1px 3px;
+}
+
+/* For all icon links: */
+.icon-links li a {
+    margin: 0;
+    img {
+        display: none;
+    }
+    &:hover {
+        text-decoration: none;        
+    }
+    &:after {
+        font-size: 24px;
+        font-family: g_icons;
+    }
+    &:hover:after {
+        font-variation-settings: 'FILL' 1;
+    }
+    
+    /* Atrociously hacky fake alt-text */
+    &:hover:before {
+        position: absolute;
+        font-size: 90%;
+        padding: 6px;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 6px;
+        translate: 0em 32px;
+    }
+}
+
+/* Entry Management */
+
+.link_prev a {
+    &:after {
+        content: "arrow_back";
+    }
+    &:hover:before {
+        content: "Previous Entry";
+    }
+}
+
+.edit_entry a {
+    &:after {
+        margin-right: 1px;
+        content: "edit_square";
+    }
+    &:hover:before {
+        content: "Edit Entry";
+    }
+}
+
+.edit_tags a {
+    &:after {
+        margin-left: 1px;
+        content: "sell";
+    }
+    &:hover:before {
+        content: "Edit Tags";
+    }
+}
+
+.mem_add a {
+    &:after {
+        content: "heart_plus";
+    }
+    &:hover:before {
+        content: "Add/Edit Memory";
+    }
+}
+
+.tell_friend a {
+    &:after {
+        content: "forward_to_inbox";
+    }
+    &:hover:before {
+        content: "Share (Email)";
+    }
+}
+
+.watch_comments a {
+    &:after {
+        content: "notification_add";
+    }
+    &:hover:before {
+        content: "Receive Notifications";
+    }
+}
+
+.unwatch_comments a {
+    &:after {
+        content: "notification_settings";
+    }
+    &:hover:before {
+        content: "Edit Notifications";
+    }
+}
+
+.link_next a {
+    &:after {
+        content: "arrow_forward";
+    }
+    &:hover:before {
+        content: "Next Entry";
+    }
+}
+
+/* Comment Management */
+
+.edit_comment a {
+    &:after {
+        content: "edit";
+    }
+    &:hover:before {
+        content: "Edit Comment";
+    }
+}
+
+.delete_comment a {
+    &:after {
+        content: "cancel";
+    }
+    &:hover:before {
+        content: "Delete Comment";
+    }
+}
+
+.screen_comment a {
+    &:after {
+        content: "lightbulb";
+    }
+    &:hover:before {
+        content: "Screen/Unscreen Comment";
+    }
+}
+
+.freeze_thread a {
+    &:after {
+        content: "pause_circle";
+    }
+    &:hover:before {
+        content: "Freeze/Unfreeze Thread";
+    }
+}
+
+
+/* Community/User Management */
+
+.manage_membership a {
+    &:after {
+        content: "globe";
+    }
+    &:hover:before {
+        content: "Join/Leave Community";
+    }
+}
+
+.watch a {
+    &:after {
+        content: "auto_stories";
+    }
+    &:hover:before {
+        content: "Add/Edit Subscription";
+    }
+}
+
+.post_entry a {
+    &:after {
+        content: "add_notes";
+    }
+    &:hover:before {
+        content: "New Post";
+    }
+}
+
+.track a {
+    &:after {
+        content: "notification_add";
+    }
+    &:hover:before {
+        content: "Receive Notifications";
+    }
+}
+
+.message a {
+    &:after {
+        content: "send";
+    }
+    &:hover:before {
+        content: "Send Private Message";
+    }
+}
+
+.trust a {
+    &:after {
+        content: "key";
+    }
+    &:hover:before {
+        content: "Grant/Manage Access";
+    }
+}

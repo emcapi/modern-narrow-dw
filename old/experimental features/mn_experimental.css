@@ -1,0 +1,164 @@
+/* Experimental features */
+
+/* Change to @media: allow full-width comment pages, wider middle column */
+
+/* Set fixed size for main column on sufficiently large screens */
+@media only screen and (min-width: 720px) { /* 45 em */
+    :is(.page-recent, .page-read, .page-archive, .page-tags) {
+        #primary { /* Excludes .page-entry to allow full-width comment pages */
+        width: 720px;
+        }
+        #content > .inner {
+        width: min-content; /* Fix weird centering issues when sidebar/s hidden */
+        }
+    }
+
+    /* Keep a reasonable max width for entry/comments page */
+    .page-entry {
+        #primary {
+            max-width: 1200px;
+        }
+    }
+
+    /* Align top nav buttons with side modules */
+    .topnav {
+        margin-top: 1em;
+    }
+}
+
+/* textarea default size adjustments */
+
+/*Original*/
+/* Make text/code blocks reasonably sized by default */
+textarea {
+    box-sizing: border-box;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 90%;
+    max-width: 90%;
+    height: 5em;
+}
+
+/* New */
+/* Make text/code blocks reasonably sized by default */
+textarea {
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 90%;
+    max-width: 90%;
+}
+
+
+/* Comment thread tracking - dark mode */
+.comment-depth-odd {
+    border-left: 3px solid #ffffff30;
+    border-radius: 6px;
+}
+.comment-depth-even {
+    border-left: 3px solid #ffffff50;
+    border-radius: 6px;
+}
+
+
+/* List alignment tweaks - trying to make them cooperate in comments when
+ * wrapping around user icon */
+
+/* ORIGINAL */
+/* Get lists to cooperate, compact down slightly & prevent overflow */
+ul, ol {
+    margin-top: 0;
+    margin-left: 0;
+    padding-left: 1.5em;
+}
+.entry-content li, .comment-content li {
+    list-style-position: outside;
+    padding-left: 0px;
+}
+
+/* Experimenting with overflow: setting */
+/* Get lists to cooperate, compact down slightly & prevent overflow */
+ul, ol {
+    margin-top: 0;
+    margin-left: 0;
+    padding-left: 1.5em;
+    overflow: hidden;
+}
+:is(.comment-content, entry-content) li {
+    list-style-position: outside;
+}
+
+/* Limits outside style to entries, hopefully?? preventing weird comment clipping? */
+/* Get lists to cooperate, compact down slightly & prevent overflow */
+:is(.entry-content, .comment-content) :is(ul, ol) {
+    margin-top: 5px;
+    margin-left: 0;
+    padding-left: 1.5em;
+}
+.entry-content li {
+    list-style-position: outside;
+    padding-left: 0px;
+}
+
+/* Basic list compaction, doesn't touch inside/outside defaults */
+/* Get lists to cooperate, compact down slightly & prevent overflow */
+:is(.entry-content, .comment-content) :is(ul, ol) {
+    margin-top: 0;
+    margin-left: 0;
+    padding-left: 1.5em;
+}
+
+
+
+/* Header nav links option */
+/* Header nav links - dark */
+#header .module-list {
+    li { /* Make good-looking buttons */
+        text-align: center;
+        width: 100px;
+        min-width: max-content; /* Prevent getting squished into multi-row text */
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: -5px; /* Get rid of whitespace between sections */
+        border: 1px solid #ffffff20;
+        border-left: none; /* Prevent translucent border overlap */
+        background-color: #ffffff10;
+    }
+    li:first-child {
+        border-left: 1px solid #ffffff20;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+    }
+    li:last-child {
+        margin-right: 0px; /* Fix offset from merging borders */
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+}
+
+/* v2 */
+/* Header nav links - dark */
+#header .module-list {
+    background-color: #ffffff10;
+    border: 1px solid #ffffff20;
+    border-radius: 8px;
+    li {
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        margin: 0;
+    }
+    a {
+        padding: 0.5em 16px;
+    }
+    a:hover {
+        background-color: #ffffff20;
+        text-decoration: none;
+    }
+}

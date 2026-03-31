@@ -1,0 +1,79 @@
+/* Link colors; REMOVE THIS SECTION if you want CUSTOM link colors! */
+a:link, a:visited {
+    color: black;
+    text-decoration: none;
+}
+a:hover {
+    color: #4d4d4d;
+    text-decoration: underline;
+}
+
+/* Desktop */
+@media only screen and (min-width: 45em) {
+    .multiple-columns #primary {
+        width: 650px;
+    }
+    .two-columns-right #secondary {
+        width: 200px;
+        margin-right: -200px;
+    }
+}
+
+#canvas {
+    font-family: sans-serif;
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+}
+
+#header {
+    margin: 1%;
+    padding-left: 2em;
+    padding-bottom: 1em;
+    border-radius: 7px;
+    border: 1px solid #00000020;
+    background: #00000005;
+    box-shadow: 2px 2px #00000020;
+    font-family: sans-serif;
+}
+
+h1#title {
+    font-size: larger;
+}
+
+h2#subtitle, h2#pagetitle {
+    font-size: medium;
+    padding: 0em;
+}
+
+.entry {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-bottom: 1.5em;
+    border-radius: 7px;
+    border: 1px solid #00000020;
+    background: #00000003;
+    box-shadow: 2px 2px #00000020;
+}
+
+#lj_controlstrip {
+    background-color: #00000015;
+    background-image: none;
+    border-bottom: 1px solid #00000020;
+}
+
+#lj_controlstrip_user, #lj_controlstrip_login, #lj_controlstrip_actionlinks {
+    border-right: 1px solid #00000020;
+}
+
+#lj_controlstrip, #lj_controlstrip a, #lj_controlstrip_statustext {
+    color: black;
+}
+
+.module h2 {
+  font-size: large;
+}

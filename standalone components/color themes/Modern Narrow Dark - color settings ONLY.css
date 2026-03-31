@@ -1,0 +1,175 @@
+/* Modern Narrow Dark by @emcapi - v1.1.0*/
+
+/* HOW TO USE: Paste this into Modern Narrow Core betweeen the "PASTE COLOR THEME" lines! */
+
+/* Entire page */
+body {
+    color: white; /* font color */
+    background-color: #111111;
+}
+
+/* Link colors */
+a:link, a:visited {
+    color: #bcbcbc;
+}
+
+/* Top nav strip */
+#lj_controlstrip {
+    color: white;
+    background-image: none;
+    background-color: #ffffff08;
+}
+#lj_controlstrip a, #lj_controlstrip_statustext {
+    color: white;
+}
+
+/* Boxes for major page components */
+#header,
+.entry,
+:is(.module-section-one, .module-section-two) .module, /* Exclude header nav links */
+.comment-wrapper,
+#archive-month .month,
+.year,
+.tags-container,
+.bottomcomment,
+#qrdiv:not([style="display: inline;"]) /* Standalone comment reply form */
+{
+    background-color: #ffffff10;
+    border-color: #ffffff10;
+    box-shadow: 2px 2px 4px #00000060;
+}
+
+/* Text button and input field colors */
+.text-links a,
+.page-top a,
+input,
+select,
+#lj_controlstrip input,
+#lj_controlstrip select,
+#lj_controlstrip input#login_user,
+#lj_controlstrip input#login_password,
+#lj_controlstrip input#login_remember,
+#lj_controlstrip input#search,
+#header .module-list a,
+.ui-button-text {
+    color: white;
+    background-color: #ffffff10;
+    border-color: #ffffff10;
+}
+/* Highlight buttons on hover */
+:is(
+    .text-links a,
+    .page-top a,
+    input,
+    select,
+    .icon-links li,
+    #lj_controlstrip input,
+    #lj_controlstrip select,
+    #header .module-list a,
+    .ui-button-text
+):hover {
+    background-color: #ffffff20;
+}
+
+/* Comment thread indicators */
+.comment-depth-odd {
+    border-color: #ffffff30;
+}
+.comment-depth-even {
+    border-color: #ffffff50;
+}
+
+/* Calendar headers */
+:is(.module-calendar, table.month) th {
+    background-color: #ffffff10;
+}
+
+/* Contextual tooltips */
+body .ui-tooltip {
+    border-color: #ffffff20;
+}
+.ui-widget-content {
+    color: white;
+    background: #222222;
+    border-color: #ffffff20;
+}
+.ui-widget-header {
+    color: white;
+    background: #ffffff10;
+}
+
+/* Text boxes */
+textarea {
+    color: unset;
+    background-color: #ffffff10;
+    border-color: #ffffff20;
+}
+
+/* Colors for custom icon buttons and fake alt-text (dark theme) */
+.icon-links li a {
+    /* Default (inactive) color */
+    &:after {
+        color: white;
+    }
+    /* Fake alt-text colors */
+    &:hover:before {
+        color: white;
+        background: #282828;
+        border-color: #bcbcbc;
+    }
+}
+
+/* Icon button hover colors for dark theme.
+Loosely based off original DW icons. */
+:is(
+    .edit-entry,
+    .edit-tags,
+    .post-entry
+) a:hover:after {
+    color: #47b2ff;
+}
+
+:is(
+    .link_prev,
+    .link_next
+) a:hover:after {
+    color: dodgerblue;
+}
+
+:is(
+    .mem_add,
+    .delete_comment
+) a:hover:after {
+    color: palevioletred;
+}
+
+:is(
+    .tell_friend
+) a:hover:after {
+    color: lightsteelblue;
+}
+
+:is(
+    .watch_comments,
+    .unwatch_comments,
+    .edit_comment,
+    .screen_comment,
+    .track,
+    .trust
+) a:hover:after {
+    color: #e9a028;
+}
+
+:is(
+    .freeze_thread,
+    .watch,
+    .message
+) a:hover:after {
+    color: cornflowerblue;
+}
+
+:is(
+    .manage_membership
+) a:hover:after {
+    color: mediumaquamarine;
+}

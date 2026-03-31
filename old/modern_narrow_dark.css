@@ -1,0 +1,641 @@
+/*
+Modern Narrow Dark for Tabula Rasa (Dreamwidth layout)
+Author: @emcapi
+Version: 1.1.0
+Last updated: 3/25/26
+Permissions:
+- Personal use: credit strongly preferred, but not required.
+- Public edits: allowed and encouraged! Credit required,
+  including link to original layout.
+- Redistribution: Please only redistribute if you have made
+  substantial changes (i.e. an edit); this is partly a matter of
+  credit, but also in case I make future updates/improvements,
+  so that people don't end up with an old, buggy version.
+
+This code is 100% human-made! (And you can probably tell, because
+I ended up learning as I go for a lot of it, lol.)
+*/
+
+/*
+****************** RECOMMENDED THEME SETTINGS ******************
+
+Presentation > Additional Options:
+
+"The width at which the layout switches from single column mode 
+(mobile view) to multiple columns if selected (tablet view)":
+set to sum of total sidebar width in em + 45em
+Example: default 15em sidebar, with 2-sidebar layout:
+(2 x 15em) + 45em = 70em
+
+"Indentation for nested comment threads": set to "Responsive"
+
+"...indicate thread depth (mobile)": set to 4
+
+"...indicate thread depth (desktop)": set to 10, or according to
+personal preference; not as important as mobile
+
+************************* BUG REPORTS **************************
+
+If you run into problems, even with the above settings, please
+send me (@emcapi) a message including:
+
+- A quick description of the issue
+- A screenshot link, if possible
+- Your column configuration setting
+- A link to the page you were having issues on, if possible
+- What browser you're using
+- What type of device you're on (phone/tablet/desktop)
+
+I will take a look and see if I can fix it!
+
+Disclaimer: ongoing support is provided at author's discretion,
+and not guaranteed. I cannot provide support for edits.
+
+************************ CUSTOMIZATION ************************
+
+Change code in this section to tweak theme options:
+*/
+
+/* CHANGE from "flex" to "none" for NO HEADER */
+#header {
+    display: flex;
+}
+
+/* REMOVE if you are adding a CUSTOM FONT */
+#canvas {
+    font-family: sans-serif;
+}
+
+/* REMOVE if you are adding a CUSTOM FONT COLOR */
+#canvas {
+    color: white;
+}
+
+/* REMOVE if you are adding CUSTOM LINK COLORS */
+a:link, a:visited {
+    color: #bcbcbc;
+}
+.text-links li, .page-top {
+    a:link, a:visited {
+        color: white;
+    }
+}
+
+/* REMOVE if you are adding a CUSTOM BACKGROUND COLOR */
+body {
+    background-color: #111111;
+}
+
+/* REMOVE if you are adding a CUSTOM ENTRY COLOR */
+.entry {
+    background-color: #ffffff10;
+}
+
+/* REMOVE if you are adding a CUSTOM MODULE COLOR */
+.module {
+    background-color: #ffffff10;
+}
+
+/* REMOVE if you are adding a CUSTOM HEADER COLOR */
+#header {
+    background-color: #ffffff10;
+}
+
+/*
+End of customization section.
+
+************** Unless you know what you're doing, **************
+************** do not change anything after this! **************
+*/
+
+/* Remove most link underlines */
+a:link, a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+
+/*
+Top-of-page control strip tweaks
+*/
+
+#lj_controlstrip_user, #lj_controlstrip_login, #lj_controlstrip_actionlinks {
+    border-right: none;
+}
+
+/* Make nav strip fields/buttons better looking */
+#lj_controlstrip {
+    input, select {
+        padding: 2px;
+        border-radius: 6px;
+        border: none;
+    }
+    input:hover, select:hover {
+        background-color: gray;
+    }
+}
+
+
+/*
+Header formatting 
+*/
+
+#header {
+    padding-bottom: 1em;
+    border: 1px solid #ffffff10;
+    text-align: center;
+    h1#title {
+        font-size: larger;
+    }
+    h2#subtitle, h2#pagetitle {
+        font-size: medium;
+        padding: 0em;
+    }
+    box-shadow: 2px 2px 4px #00000060;
+    > .inner {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 1.5em;
+        margin-right: 1.5em;
+    }
+}
+
+/* Header nav links - dark */
+#header .module-list {
+    border: 1px solid #ffffff20;
+    border-radius: 8px;
+    li {
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        margin: 0;
+    }
+    a {
+        padding: 0.5em 16px;
+    }
+    a:hover {
+        background-color: #ffffff20;
+        text-decoration: none;
+    }
+}
+
+
+/*
+Content formatting
+*/
+
+/* Limit media width so it doesn't overflow */
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+/* Same for potentially problematic content */
+div, table, blockquote, h1, h2, h3, h4, h5, h6 {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+/* Make text/code blocks reasonably sized by default */
+textarea {
+    box-sizing: border-box;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 90%;
+    max-width: 90%;
+}
+
+/* Get lists to cooperate, compact down slightly & prevent overflow */
+ul, ol {
+    margin-top: 0;
+    margin-left: 0;
+    padding-left: 1.5em;
+}
+
+/* Enable centered columns */
+#content {
+    display: flex;
+    justify-content: center;
+}
+
+/* Set fixed size for main column on sufficiently large screens */
+@media only screen and (min-width: 720px) {
+    #primary {
+        width: 720px;
+    }
+    #content > .inner {
+        width: min-content; /* Fix weird centering issues when sidebar/s hidden */
+    }
+}
+
+/* Pretty boxes for main components */
+.entry,
+:is(.module-section-one, .module-section-two) .module, /* Exclude header navigation */
+.comment-wrapper,
+#archive-month .month,
+.year,
+.tags-container,
+.bottomcomment,
+#qrdiv:not([style="display: inline;"]) {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-radius: 8px;
+    border: 1px solid #ffffff10;
+    box-shadow: 2px 2px 4px #00000060;
+}
+.comment-wrapper,
+#archive-month .month,
+.year,
+.tags-container,
+.bottomcomment,
+#qrdiv:not([style="display: inline;"]) {
+    background-color: #ffffff10
+}
+
+/* Fix contextual popup/tooltip colors */
+.ui-tooltip {
+    box-shadow: none;
+    border: none;
+}
+.ui-widget-content {
+    border: 1px solid #ffffff20;
+    border-radius: 8px;
+    background: #222222;
+    color: white;
+}
+.Userpic {
+    border-color: transparent;
+}
+
+/* Comment thread tracking - dark mode */
+.comment-depth-odd {
+    border-left: 3px solid #ffffff30;
+    border-radius: 10px;
+}
+.comment-depth-even {
+    border-left: 3px solid #ffffff50;
+    border-radius: 10px;
+}
+
+
+/*
+Entry/comment component formatting
+*/
+
+/* Make access icon line up nicely */
+:is(.entry, .comment) .header > .inner {
+    display: flex;
+    flex-wrap: wrap;
+}
+.entry-title, .comment-title {
+    width: 100%;
+    margin: 0px;
+}
+.access-filter, .restrictions {
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.datetime {
+    font-size: smaller;
+}
+
+/* Profile picture/icon */
+.userpic img, .userpic-img {
+    border-radius: 10%;
+    border: 1px solid transparent;
+}
+.block-icon a::after { /* "View all" option in comment form */
+    border-radius: 10%;
+}
+.contents .userpic {
+    float: left;
+    margin: auto;
+    margin-top: 5px;
+    margin-right: 16px;
+}
+/* Force smaller icons on mobile */
+@media only screen and (max-width: 600px) {
+    .contents .userpic {
+        max-width: 75px;
+    }
+}
+
+.contents {
+    margin-top: 5px;
+}
+.entry-content, .comment-content {
+    margin-top: 5px;
+}
+
+/* Align end-of-entry components */
+.metadata ul {
+    margin-left: 0;
+}
+.bottom-metadata {
+    margin-top: 1em;
+}
+.tag {
+    margin-bottom: 0.5em;
+}
+.footer {
+    clear: both; /* Prevent user icon clipping on short posts */
+    margin-top: 1em;
+}
+
+/* Fix comment margins due to issues with hide/show function */
+.comment-wrapper {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.comment-thread {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+
+/*
+Fancy buttons 
+*/
+
+/* Make text buttons fancy */
+:is(.text-links, .page-top) a {
+    font-size: 90%;
+    a:hover {
+        text-decoration: none;
+    }
+    padding: 4px;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    margin-bottom: 3px;
+    background-color: #ffffff10;
+    border: 1px solid #ffffff10;
+    border-radius: 100px; /* Ensure maximum rounding */
+}
+:is(.text-links, .page-top) a:hover {
+    background: #ffffff20;
+    text-decoration: none;
+}
+
+/* Make icon buttons a little fancy */
+.icon-links li {
+    border-radius: 6px;
+    a {
+        display: flex;
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+}
+.icon-links li:hover {
+    background: #ffffff20;
+}
+
+/* Tweaks for various input forms (reply, bottom comment options, etc) */
+input, select {
+    color: unset;
+    padding: 2px;
+    background-color: #ffffff10;
+    border: 1px solid #ffffff10;
+    border-radius: 6px;
+}
+select:hover, input:hover {
+    background-color: #ffffff20;
+}
+
+/* Make text input areas prettier */
+textarea {
+    color: unset;
+    background: #ffffff10;
+    border: 1px solid #ffffff20;
+    border-radius: 6px;
+}
+
+/* Tweaks for top-of-page button */
+.page-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    a:link, a:visited {
+        padding-top: 0.15em;
+        padding-bottom: 0.15em;
+        margin: 0px;
+    }
+}
+
+
+/*
+Button alignment
+*/
+
+/* Align text button groups */
+.text-links {
+    margin-top: 3px;
+    margin-bottom: 0em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+}
+
+/* Improve icon button alignment */
+.tag-nav-trigger {
+    background-color: unset;
+    margin-left: 3px;
+}
+.icon-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+:is(.entry, .comment) .icon-links {
+    justify-content: right;
+}
+
+/* Align navigation buttons */
+.navigation {
+    ul {
+        margin-top: 1em;
+    }
+}
+.navigation, .comment-pages {
+    text-align: center;
+}
+.page-top {
+    margin-bottom: 0.5em;
+}
+
+/* Align comment select button */
+.multiform-checkbox {
+    float: left;
+}
+
+/* Align bottom comment functions */
+.bottomcomment {
+    text-align: center;
+    .text-links {
+        justify-content: center;
+    }
+    input, select {
+        margin-top: 0.5em;
+    }
+}
+
+/* Align input form stuff */
+#qrformdiv input, #qrformdiv button, #qrformdiv textarea, #qrformdiv select {
+    margin-top: 5px;
+}
+#qrformdiv textarea {
+    max-width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+/* Fix weirdness with "width-adjusted" subclass */
+#qrformdiv.width-adjusted {
+    min-width: unset !important;
+    position: unset !important;
+    background-color: unset !important;
+}
+
+
+/*
+Module formatting
+*/
+
+/* Handle two-column tertiary module container */
+.two-columns #tertiary .inner {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.two-columns #tertiary .module {
+    float: unset;
+    width: unset;
+}
+
+/* Slightly smaller fonts for module contents */
+.module h2 {
+    font-size: large; /* originally x-large */
+}
+.module {
+    font-size: 90%
+}
+.module-cuttagcontrols {
+    font-size: unset; /* Exception; already has tiny font */
+}
+
+.module-header {
+    margin-top: 0px;
+    text-align: center;
+}
+
+/* Remove bullet points from module lists */
+.module-list {
+    margin: 0px;
+}
+.module-content ul {
+    list-style: none;
+    margin-left: 0px;
+}
+
+
+/*
+Specific modules
+*/
+.module-userprofile {
+    text-align: center;
+}
+
+/* Search module */
+.search-box {
+    box-sizing: border-box;
+    width: 100%;
+}
+.search-button-item {
+    text-align: center;
+    margin-top: 0.5em;
+}
+
+/* this calendar is the bane of my existence */
+.any-column .module-calendar table {
+    width: -webkit-fill-available;
+    max-width: 18em;
+    height: 14em;
+    
+    /* stupid margins */
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    
+    font-family: monospace;
+    font-size: medium;
+    text-align: center;
+    border-collapse: collapse;
+    th {
+        background-color: #ffffff10;
+    }
+    a:link, a:visited {
+        text-decoration: underline;
+    }
+    
+    /* Because for some godforsaken reason, active entries take up exactly 2px
+    more space on each side than inactive ones, and the alignment issues were
+    driving me absolutely nuts: */
+    .entry-day {
+        padding: 1px;
+    }
+    .empty-day {
+        padding: 3px;
+    }
+}
+
+
+/*
+Other pages
+*/
+
+/* Archive pages */
+#archive-month .month {
+    .datetime {
+        font-size: unset;
+    }
+}
+.year {
+    text-align: center;
+}
+/* OH BOY ANOTHER CALENDAR MY FAVORITE */
+table.month {
+    font-family: monospace;
+    font-size: large;
+    caption {
+        display: none; /* Redundant to header */
+    }
+    tr {
+        text-align: center;
+    }
+    th, td {
+        height: 2.5em;
+        width: 2.5em;
+        border: none;
+        padding: 3px;
+    }
+    th {
+        background-color: #ffffff10;
+    }
+    a:link, a:visited {
+        text-decoration: underline;
+    }
+}
+
+/* Tags page */
+.tags-container h2 {
+    font-size: larger;
+}
