@@ -39,7 +39,7 @@ At this point, you have 2 main options. Don't worry, you can always swap to the 
 - You would like to make changes to your copy of the theme (e.g. editing or removing hard-coded colors).
 
 #### Instructions for this option (continued from Installation):
-6. Go to (**TODO** ADD RELEASES PAGE), open the .css file for your preferred version of the theme (light or dark) in a new tab, and copy all contents.
+6. Open the .css files for either the [light](./Modern%20Narrow%20Light.css) or [dark](./Modern%20Narrow%20Dark.css) theme, and copy all contents.
 6.5. (Bonus step!): If you already know the specific changes you want to make,[^1] you can paste the code into a plain-text editor (e.g. Notepad or Notepad++) to edit it before putting it on your journal. (Don't use Microsoft Word or other full-fledged text editors, as they may add weird formatting characters.)
 7. Paste your (optionally edited) code into the "Use embedded CSS" box on Dreamwidth.
 8. Save changes.
@@ -47,13 +47,13 @@ At this point, you have 2 main options. Don't worry, you can always swap to the 
 
 [^1]: See [Custom Color Themes](#custom-color-themes) and [Other Customization](#other-customization) for tips and ideas.
 
-### Option 2: Latest Release Stylesheet Link
+### Option 2: Stylesheet Link
 #### Choose this if:
 - You want to keep up-to-date on the latest version, including any future fixes/changes/additions, without having to manually update every time.
 - You don't plan on making any changes to the code.
 
 #### Instructions for this option (continued from Installation):
-6. Go to (**TODO** ADD RELEASES PAGE) and copy the link to the .css file for your preferred version of the theme (light or dark).
+6. Right click and copy the link shown here for either the [light](https://raw.githubusercontent.com/emcapi/modern-narrow-dw/refs/heads/main/Modern%20Narrow%20Light.css) or [dark](https://raw.githubusercontent.com/emcapi/modern-narrow-dw/refs/heads/main/Modern%20Narrow%20Dark.css) theme (should point to raw.githubusercontent.com).
 7. Paste link into the "Custom stylesheet URL" box.
 8. Save changes.
 9. Under the "Presentation" tab, configure the [Recommended Settings](#recommended-settings) from the next section.
