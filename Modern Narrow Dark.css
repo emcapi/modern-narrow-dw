@@ -166,9 +166,9 @@ textarea {
 /* Icon button hover colors for dark theme.
 Loosely based off original DW icons. */
 :is(
-    .edit-entry,
-    .edit-tags,
-    .post-entry
+    .edit_entry,
+    .edit_tags,
+    .post_entry
 ) a:hover:after {
     color: #47b2ff;
 }
