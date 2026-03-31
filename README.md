@@ -66,7 +66,7 @@ At this point, you have 2 main options. Don't worry, you can always swap to the 
 **"Beyond this depth, use compact styling to indicate thread depth (mobile). Ignored for static indentation"**: Set to "4".
 While not strictly required, you may want to set the next option (compact styling for desktop) as well, especially if you frequently end up in deep comment threads. 10 is a good starting point.
 
-> [!CAUTION]
+> [!WARNING]
 > If you **don't** configure the indentation style + mobile compact styling settings, you'll get really annoying horizontal scrolling on mobile on any pages with deep comment threads (depth of 5 or more).
 
 ### Non-customizable/hardcoded settings:
