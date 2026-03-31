@@ -1,7 +1,12 @@
 # Modern Narrow Light/Dark - Layout for Dreamwidth
 A minimalist theme/layout for Dreamwidth inspired by Tumblr and other popular social media sites, prioritizing readability and customization.
 
-<ins>**This code & associated documentation is 100% human-made!</ins> <3**
+<ins>**This code & associated documentation is 100% human-made!</ins> :heart:**
+
+![Small preview image of Modern Narrow Light](./preview%20pics/mnlight-preview-thumbnail.png)
+![Thumbnail image of Modern Narrow Dark](./preview%20pics/mndark-preview-thumbnail.png)
+
+For full-sized previews including comment threads, see [preview pics](./preview%20pics) folder.
 
 ## Main Features
 - Light and dark default theme options.
