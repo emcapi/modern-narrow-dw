@@ -66,7 +66,7 @@ At this point, you have 2 main options. Don't worry, you can always swap to the 
 **"Beyond this depth, use compact styling to indicate thread depth (mobile). Ignored for static indentation"**: Set to "4".
 While not strictly required, you may want to set the next option (compact styling for desktop) as well, especially if you frequently end up in deep comment threads. 10 is a good starting point.
 
-> [!CAUTION]
+> [!WARNING]
 > If you **don't** configure the indentation style + mobile compact styling settings, you'll get really annoying horizontal scrolling on mobile on any pages with deep comment threads (depth of 5 or more).
 
 ### Non-customizable/hardcoded settings:
@@ -81,7 +81,7 @@ Part of the goal for this theme is being easy to customize. For that purpose, al
 
 To make this easier, under the Components folder in this repository, there's a special edition of Modern Narrow called Modern Narrow Core, which has an empty Color section to paste in your own. There's another folder with the standalone default light/dark color themes.
 
-> [!Info]
+> [!NOTE]
 > If you're planning to create your own color theme from scratch, MN Core may be useful to you, but I highly recommend grabbing either the light or dark color settings standalone to start working from. There's tons of things I found that Dreamwidth's default customization settings don't really touch.
 
 ### Dreamwidth color settings
