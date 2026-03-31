@@ -81,7 +81,7 @@ Part of the goal for this theme is being easy to customize. For that purpose, al
 
 To make this easier, under the Components folder in this repository, there's a special edition of Modern Narrow called Modern Narrow Core, which has an empty Color section to paste in your own. There's another folder with the standalone default light/dark color themes.
 
-> [!Info]
+> [!NOTE]
 > If you're planning to create your own color theme from scratch, MN Core may be useful to you, but I highly recommend grabbing either the light or dark color settings standalone to start working from. There's tons of things I found that Dreamwidth's default customization settings don't really touch.
 
 ### Dreamwidth color settings
