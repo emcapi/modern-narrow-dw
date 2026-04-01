@@ -2,8 +2,8 @@
 Modern Narrow Light for Tabula Rasa (Dreamwidth layout)
 https://github.com/emcapi/modern-narrow-dw
 Author: @emcapi
-Version: 1.1.0
-Last updated: 3/31/26
+Version: 1.1.1
+Last updated: 4/1/26
 See Github for full permissions, documentation, and updates!
 
 This code is 100% human-made! (And you can probably tell, because
@@ -67,6 +67,7 @@ a:link, a:visited {
 .comment-wrapper,
 #archive-month .month,
 .year,
+.icons-container,
 .tags-container,
 .bottomcomment,
 #qrdiv:not([style="display: inline;"]) /* Standalone comment reply form */
@@ -78,6 +79,7 @@ a:link, a:visited {
 /* Text button and input field colors */
 .text-links a,
 .page-top a,
+.manage-link a,
 input,
 select,
 #lj_controlstrip input,
@@ -96,6 +98,7 @@ select,
 :is(
     .text-links a,
     .page-top a,
+    .manage-link a,
     input,
     select,
     .icon-links li,
@@ -118,6 +121,11 @@ select,
 /* Calendar headers */
 :is(.module-calendar, table.month) th {
     background-color: #00000010;
+}
+
+/* Icon page divider */
+.icon {
+    border-bottom-color: #00000020;
 }
 
 /* Contextual tooltips*/
@@ -298,6 +306,7 @@ ul, ol {
 .comment-wrapper,
 #archive-month .month,
 .year,
+.icons-container,
 .tags-container,
 .bottomcomment,
 #qrdiv:not([style="display: inline;"]) /* Standalone comment reply form */
@@ -596,6 +605,12 @@ textarea {
     text-align: center;
 }
 
+/* Most Popular Tags */
+.module-tags_list .manage-link {
+  margin: 5px;
+  margin-top: 1em;
+}
+
 /* Search module */
 .search-box {
     box-sizing: border-box;
@@ -671,9 +686,62 @@ table.month {
     }
 }
 
+/* Shared formatting for icon/tag pages */
+:is(.icons-container, .tags-container) {
+  h2 {
+    font-size: larger; /* x-large by default */
+    margin: 0;
+  }
+  .footer {
+    margin: 5px;
+  }
+}
+.manage-link {
+  text-align: center;
+}
+
 /* Tags page */
-.tags-container h2 {
-    font-size: larger;
+.ljtaglist {
+  margin: 0.5em 0;
+}
+
+/* Icons page */
+.icons-container .sorting-options ul {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.icon {
+  display: flex;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  margin: 0px 10px;
+}
+.icon:last-child {
+  border: none; /* No divider after last icon */
+}
+.icon-image {
+  width: 100px; /* standardize width so text lines up nicely */
+  height: 100px;
+  margin: 15px 10px;
+  margin-left: 0;
+  text-align: center;
+  flex-shrink: 0;
+  img {
+    border-radius: 10px;
+  }
+}
+.icon-info {
+  margin: 15px 5px;
+    margin-right: 0;
+}
+.default.label {
+  font-size: large;
+}
+.keywords-label,
+.comment-text,
+.description-text {
+  font-weight: bold;
 }
 
 
@@ -682,6 +750,7 @@ table.month {
 /* Normal buttons */
 .text-links a,
 .page-top a,
+.manage-link a,
 input,
 select,
 .ui-button-text {
@@ -690,6 +759,7 @@ select,
 }
 .text-links a,
 .page-top a,
+.manage-link a,
 input,
 select,
 #lj_controlstrip input,
@@ -713,6 +783,7 @@ select,
 :is(
     .text-links a,
     .page-top a,
+    .manage-link a,
     input,
     select,
     #lj_controlstrip input,

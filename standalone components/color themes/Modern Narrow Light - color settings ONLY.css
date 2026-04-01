@@ -1,4 +1,4 @@
-/* Modern Narrow Light by @emcapi - v1.1.0 */
+/* Modern Narrow Light by @emcapi - v1.1.1 */
 
 /* HOW TO USE: Paste this into Modern Narrow Core betweeen the "PASTE COLOR THEME" lines! */
 
@@ -23,6 +23,7 @@ a:link, a:visited {
 .comment-wrapper,
 #archive-month .month,
 .year,
+.icons-container,
 .tags-container,
 .bottomcomment,
 #qrdiv:not([style="display: inline;"]) /* Standalone comment reply form */
@@ -34,6 +35,7 @@ a:link, a:visited {
 /* Text button and input field colors */
 .text-links a,
 .page-top a,
+.manage-link a,
 input,
 select,
 #lj_controlstrip input,
@@ -52,6 +54,7 @@ select,
 :is(
     .text-links a,
     .page-top a,
+    .manage-link a,
     input,
     select,
     .icon-links li,
@@ -74,6 +77,11 @@ select,
 /* Calendar headers */
 :is(.module-calendar, table.month) th {
     background-color: #00000010;
+}
+
+/* Icon page divider */
+.icon {
+    border-bottom-color: #00000020;
 }
 
 /* Contextual tooltips*/
