@@ -71,6 +71,11 @@ select,
     background-color: #ffffff20;
 }
 
+/* Fix for invis. text on Chrome/Chromium browser drop-down menus */
+option {
+    color: black;
+}
+
 /* Comment thread indicators */
 .comment-depth-odd {
     border-color: #ffffff30;
